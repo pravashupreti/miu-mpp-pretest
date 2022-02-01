@@ -16,4 +16,17 @@ public class Transaction {
 		this(amount, inAccount);
 		this.memo = memo;
 	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public String getSummaryLine() {
+		if (amount > 0) {
+			return String.format("%s : $%s.02f :%s ", timestamp.toString(), amount, memo);
+		} else {
+			return String.format("%s : $(%s.02f) :%s ", timestamp.toString(), amount, memo);
+		}
+	}
+
 }
