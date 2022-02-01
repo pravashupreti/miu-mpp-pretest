@@ -54,7 +54,7 @@ public class ATM {
 
 			System.out.println(" 1. Show account transaction history");
 			System.out.println(" 2. withdraw");
-			System.out.println(" 3. Deposite");
+			System.out.println(" 3. deposit");
 			System.out.println(" 4. Transfer");
 			System.out.println(" 5. Quit");
 
@@ -75,7 +75,7 @@ public class ATM {
 			ATM.withdrawFund(user, sc);
 			break;
 		case 3:
-			ATM.depositeFund(user, sc);
+			ATM.depositFund(user, sc);
 			break;
 		case 4:
 			ATM.transferFund(user, sc);
@@ -88,7 +88,7 @@ public class ATM {
 
 	}
 
-	public static void depositeFund(User user, Scanner sc) {
+	public static void depositFund(User user, Scanner sc) {
 		int toAccount;
 		double amount;
 		String memo;
@@ -104,7 +104,7 @@ public class ATM {
 		} while (toAccount < 0 || toAccount >= user.numberOfAccounts());
 
 		do {
-			System.out.printf("\n Enter the amount to deposite ");
+			System.out.printf("\n Enter the amount to deposit ");
 
 			amount = sc.nextDouble();
 
@@ -175,7 +175,7 @@ public class ATM {
 
 			}
 
-		} while (amount < 0 || amount < actualBalance);
+		} while (amount < 0 || amount > actualBalance);
 
 		System.out.println("Enter the memo: ");
 		memo = sc.nextLine();
@@ -229,7 +229,7 @@ public class ATM {
 
 			}
 
-		} while (amount < 0 || amount < actualBalance);
+		} while (amount < 0 || amount > actualBalance);
 
 		user.addAccountTransaction(fromAccount, -1 * amount,
 				String.format("Transfer to account %s", user.getAccountUUID(toAccount)));

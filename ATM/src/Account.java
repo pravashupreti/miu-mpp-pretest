@@ -41,7 +41,11 @@ public class Account {
 
 	public void printTransactionHistory() {
 		System.out.printf("\n Transaction history for account %s \n", UUID);
-		for (int t = transactions.size(); t >= 0; t--) {
+		if (transactions.size() == 0) {
+			System.out.println("Empty transaction!");
+			return;
+		}
+		for (int t = transactions.size() - 1; t >= 0; t--) {
 			System.out.printf(this.transactions.get(t).getSummaryLine());
 		}
 	}
