@@ -80,6 +80,9 @@ public class ATM {
 		case 4:
 			ATM.transferFund(user, sc);
 			break;
+		case 5:
+			sc.nextLine();
+			break;
 		}
 
 		if (choice != 5) {
